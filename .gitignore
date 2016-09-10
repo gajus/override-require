@@ -9,6 +9,5 @@ dist
 !.npmignore
 !.babelrc
 !.travis.yml
-!.flowconfig
 !.README
 !.scripts

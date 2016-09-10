@@ -31,11 +31,11 @@ restoreOriginalModuleLoader();
 import overrideRequire from 'override-require';
 
 const isOverride = (request) => {
-	return request === 'vm';
+  return request === 'vm';
 };
 
 const resolveRequest = (request) => {
-	return 'test';
+  return 'test';
 };
 
 const restoreOriginalModuleLoader = restoreOriginalRequire(isOverride, resolveRequest);

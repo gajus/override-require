@@ -46,12 +46,6 @@ set -x
 git checkout master
 git merge $TRAVIS_COMMIT
 
-# Generate ./README.md from ./.README/README.md template.
-npm run generate-documentation
-
-git add ./README.md
-git diff-index --quiet HEAD ./README.md || git commit --no-verify -m 'docs: update documentation' ./README.md
-
 # 1. bump the package.json version (based on your commit history)
 # 2. update CHANGELOG.md
 # 3. commit package.json and CHANGELOG.md

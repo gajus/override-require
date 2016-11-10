@@ -5,8 +5,6 @@
       	"transform-export-extensions",
         "add-module-exports",
         "transform-object-rest-spread",
-        "syntax-flow",
-        "tcomb",
         "transform-flow-comments",
         "istanbul"
       ]
@@ -16,7 +14,6 @@
       	"transform-export-extensions",
         "add-module-exports",
         "transform-object-rest-spread",
-        "syntax-flow",
         "transform-flow-comments"
       ]
     }

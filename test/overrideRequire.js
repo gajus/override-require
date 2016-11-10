@@ -8,11 +8,13 @@ test('when isOverride evaluates to false: does not override require', (assert) =
   Module._load = () => {};
 
   // eslint-disable-next-line max-statements-per-line
-  overrideRequire(() => { return false; }, () => {});
+  overrideRequire(() => {
+    return false;
+  }, () => {});
 
   const spy = sinon.spy(Module, '_load');
 
-  // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies, import/no-unassigned-import
   require('foo');
 
   assert.true(spy.calledOnce);
@@ -26,7 +28,9 @@ test('when isOverride evaluates to true: overrides require', (assert) => {
   const resolveOverride = sinon.stub().returns('bar');
 
   // eslint-disable-next-line max-statements-per-line
-  overrideRequire(() => { return true; }, resolveOverride);
+  overrideRequire(() => {
+    return true;
+  }, resolveOverride);
 
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies
   const result = require('foo');

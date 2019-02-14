@@ -19,10 +19,10 @@ const isOverride = (request: string, parent: Object): boolean => {};
 // Setup a callback used to handle an overridden `require` invocation.
 const resolveRequest = (request: string, parent: Object): any => {};
 
-const restoreOriginalModuleLoader = overrideRequire(isOverride, resolveRequest);
+const restoreOriginalRequire = overrideRequire(isOverride, resolveRequest);
 
 // Restore the original module loader.
-restoreOriginalModuleLoader();
+restoreOriginalRequire();
 ```
 
 ## Example
@@ -35,18 +35,15 @@ const isOverride = (request) => {
 };
 
 const resolveRequest = (request) => {
-  return 'test';
+  return require('foobar');
 };
 
-const restoreOriginalModuleLoader = restoreOriginalRequire(isOverride, resolveRequest);
+const restoreOriginalRequire = overrideRequire(isOverride, resolveRequest);
 
 require('vm');
-// string 'test'
+// object foobar
 
-require('events');
-// class EventEmitter
-
-restoreOriginalModuleLoader();
+restoreOriginalRequire();
 
 require('vm');
 // object vm
